@@ -1,0 +1,142 @@
+<div class="page-content" style="transform: translateX(0px);">
+
+    <div class="content notch-clear">
+        <div class="d-flex py-2">
+            <div class="align-self-center me-auto">
+                <strong class="text-uppercase opacity-60 font-12">Welcome To TapLink Ecosystem</strong>
+            </div>
+            <div class="align-self-center ms-auto">
+                <a href="#" class="d-block" data-menu="menu-events"><img src="<?= config('view_static') ?>/static/images/pictures/0s.png" class="img-fluid shadow-xl rounded-circle" width="52"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card card-style bg-18" data-card-height="300" style="height: 300px;">
+        <div class="card-top no-click">
+            <a href="#"  class="btn btn-m text-uppercase rounded-sm bg-highlight float-end mx-3 my-4 font-700">Complete</a>
+        </div>
+        <div class="card-bottom">
+            <div class="content">
+                <span class="bg-highlight px-2 py-1 font-10 rounded-xs text-uppercase font-600"><?= $store["store_type"]?></span>
+                <h1 class="color-white mt-1"><?= $store["name"]?></h1>
+                <h2 class="color-white opacity-50 font-13 mt-n2 font-400"><?= $store["address"]?>, <?= $store["ward"]?>, <?= $store["district"]?>, <?= $store["city"]?></h2>
+            </div>
+
+        </div>
+        <div class="card-overlay bg-gradient"></div>
+    </div>
+
+    <div class="content">
+        <div class="d-flex">
+            <div class="align-self-center">
+                <h4 class="ps-2 pt-2">Categories</h4>
+            </div>
+            <div class="ms-auto align-self-center">
+                <a href="#" class="icon icon-xxs bg-green-dark rounded-m"><i class="fa fa-plus"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="card card-style">
+        <div class="content my-0">
+            <div class="list-group list-custom-small ">
+                <?php foreach ($menu as $m) : ?>
+                <a href="#" data-meu="menu-event-sample" data-id="<?= $m["id"]?>"></i><span><?= $m["name"]?></span><i class="fa fa-angle-right"></i></a>
+                <?php endforeach ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<div id="menu-event-sample" class="menu menu-box-bottom " data-menu-height="cover" data-menu-width="cover" style="display: block; width: 100%; height: 100%;">
+    <div class="card bg-18 rounded-0" data-card-height="350" style="height: 350px;">
+        <div class="card-top">
+            <a href="#" class="close-menu float-start btn btn-m rounded-sm font-700 text-uppercase m-3 bg-white color-black">Get Tickets</a>
+            <a href="#" class="float-end close-menu icon icon-s color-black m-3 rounded-circle bg-white"><i class="fa fa-times"></i></a>
+        </div>
+        <div class="card-bottom m-3">
+            <span class="mb-n1 bg-highlight px-2 py-1 rounded-xs font-10 font-700">MOBILE PWA</span>
+            <h1 class="color-white font-30">Envato Summer Sale</h1>
+            <p class="color-white opacity-70 pt-3 mb-2 line-height-s">We're the best Mobile Authors on Envato Market. Creating products you love and listening to every feedback you give us.</p>
+        </div>
+        <div class="card-overlay bg-gradient"></div>
+    </div>
+
+
+    <div class="content mt-n3 pb-4">
+        <div class="d-flex">
+            <div class="align-self-center">
+                <img src="images/splash/apple-touch-icon-76x76.png" class="rounded-sm" width="40">
+            </div>
+            <div class="align-self-center">
+                <span class="font-800 ps-2 opacity-50 font-11 d-block mt-n1">Event Organizer</span>
+                <h4 class="ps-2 mt-n2 mb-0">Enabled Studio</h4>
+            </div>
+            <div class="ms-auto">
+                <a href="#" class="btn btn-sm rounded-s text-uppercase font-700 bg-green-dark">Follow</a>
+            </div>
+        </div>
+        <div class="divider mt-3"></div>
+        <h2>About Event</h2>
+        <p class="line-height-m mb-3">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vulputate ac nunc nec accumsan. Nullam ultricies quis lacus a suscipit. Vivamus efficitur eros quis erat euismod consectetur
+        </p>
+        <div class="card card-style mx-0" data-card-height="250" style="height: 250px;">
+            <div class="card-top">
+                <a href="#" class="btn bg-white color-black btn-sm rounded-sm text-uppercase font-700 m-2"><i class="fa fa-car color-blue-dark pe-2"></i>Get directions</a>
+            </div>
+            <div class="card-bottom">
+                <div class="bg-white rounded-m m-2 px-4 py-3 float-end">
+                    <p class="color-black font-14 font-600 mb-1 mt-n1"><i class="fa fa-map-pin pe-2 me-1 font-13 color-red-dark"></i>United States</p>
+                    <p class="color-black font-12 line-height-xs opacity-50">
+                        California, Palo Alto <br> 1st Apple Street, 31515
+                    </p>
+                </div>
+            </div>
+            <div class="card-overlay bg-black opacity-60"></div>
+            <div class="responsive-iframe">
+                <iframe src="https://www.google.com/maps/embed/v1/view?key=AIzaSyAM3nxDVrkjyKwdIZp8QOplmBKLRVI5S_Y&amp;center=-33.8569,151.2152&amp;zoom=16&amp;maptype=satellite" frameborder="0" allowfullscreen="" newsrc="https://www.google.com/maps/embed/v1/view?key=AIzaSyAM3nxDVrkjyKwdIZp8QOplmBKLRVI5S_Y&amp;center=-33.8569,151.2152&amp;zoom=16&amp;maptype=satellite"></iframe>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <h2>Event Schedule</h2>
+        <p class="line-height-m">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vulputate ac nunc nec accumsan. Nullam ultricies quis lacus a suscipit. Vivamus efficitur eros quis erat euismod consectetur
+        </p>
+
+        <div class="d-flex">
+            <div class="align-self-top">
+                <div class="bg-white rounded-sm color-theme shadow-xl text-center me-4 overflow-hidden">
+                    <span class="bg-red-dark font-10 d-block mb-2 px-3 line-height-xs py-1">APR</span>
+                    <span class="font-23 font-600 d-block mb-n3 line-height-s">17</span><br>
+                </div>
+            </div>
+            <div class="align-self-center">
+                <h4 class="mb-0 pt-1">09:00 AM - 02:30 PM</h4>
+                <p class="mb-3">
+                    Intro to our Event and host speach.
+                </p>
+            </div>
+        </div>
+        <div class="d-flex mt-4">
+            <div class="align-self-top">
+                <div class="bg-white rounded-sm color-theme shadow-xl text-center me-4 overflow-hidden">
+                    <span class="bg-red-dark font-10 d-block mb-2 px-3 line-height-xs py-1">APR</span>
+                    <span class="font-23 font-600 d-block mb-n3 line-height-s">18</span><br>
+                </div>
+            </div>
+            <div class="align-self-center">
+                <h4 class="mb-0 pt-2">09:00 AM - 02:30 PM</h4>
+                <p class="mb-3">
+                    Intro to our Event and host speach.
+                </p>
+                <h4 class="mb-0">05:00 PM - 00:00 AM</h4>
+                <p class="mb-0">
+                    After Party. Let's dance and mingle!
+                </p>
+            </div>
+        </div>
+        <div class="divider mt-4"></div>
+        <a href="#" class="close-menu btn bg-green-dark btn-full btn-xl text-uppercase font-700 rounded-sm mt-4">Get Tickets</a>
+    </div>
+</div>

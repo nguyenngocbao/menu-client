@@ -1,0 +1,74 @@
+<script src="<?= config('view_static') ?>/static/page/store.js?v=<?= time()?>" type="text/javascript"></script>
+<div class="page-content pb-0">
+    <div data-card-height="cover" class="card" style="height: 844px;">
+        <div class="card-top notch-clear">
+            <div class="d-flex">
+
+            </div>
+        </div>
+        <div class="card-center">
+            <div class="ps-5 pe-5">
+                <h1 class="text-center font-800 font-40 mb-1 mt-5">Create Store</h1>
+                <p class="color-highlight text-center font-12">Create an Store. It's free!</p>
+
+                <div class="input-style no-borders  validate-field">
+
+                    <input type="name" class="form-control validate-name" id="form1a" placeholder="Store Name">
+                    <label for="form1a" class="color-blue-dark font-10 mt-1">Store Name</label>
+                    <i class="fa fa-times disabled invalid color-red-dark"></i>
+                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                    <em>(required)</em>
+                </div>
+                <div class="input-style no-borders  validate-field mt-2">
+
+                    <input type="number" class="form-control validate-name" name="phone" id="phone" placeholder="Phone">
+                    <label for="phone" class="color-blue-dark font-10 mt-1">Phone</label>
+                    <i class="fa fa-times disabled invalid color-red-dark"></i>
+                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                    <em>(required)</em>
+                </div>
+                <div class="input-style no-borders  validate-field mt-2">
+                    <input type="email" class="form-control validate-name" name="email" id="email" placeholder="Email">
+                    <label for="email" class="color-blue-dark font-10 mt-1">Email</label>
+                    <i class="fa fa-times disabled invalid color-red-dark"></i>
+                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                    <em>(required)</em>
+                </div>
+                <div class="input-style no-borders  validate-field mt-2">
+                    <input type="text" class="form-control validate-name" id="wifi_pass" name="wifi_pass" placeholder="Wifi Pass">
+                    <label for="wifi_pass" class="color-blue-dark font-10 mt-1">Wifi Pass</label>
+                </div>
+                <div class="input-style input-style-always-active validate-field mb-4">
+                    <select id="city" name="city_id">
+                        <option value="default"  disabled="" selected="">Select city</option>
+                        <?php foreach ($city as $c) : ?>
+                            <option value="<?= $c["id"] ?>"> <?= $c["name"] ?></option>
+                        <?php endforeach ?>
+                    </select>
+                    <label for="city" class="color-highlight">City</label>
+                </div>
+                <div class="input-style input-style-always-active validate-field mb-4">
+                    <select id="district" name="district_id">
+                        <option value="default"  disabled="" selected="">Select District</option>
+
+                    </select>
+                    <label for="district" class="color-highlight">District</label>
+                </div>
+                <div class="input-style input-style-always-active validate-field mb-4">
+                    <select id="ward" name="ward_id">
+                        <option value="default"  disabled="" selected="">Select Ward</option>
+
+                    </select>
+                    <label for="ward" class="color-highlight"></label>
+                </div>
+                <div class="input-style input-style-always-active validate-field mb-4">
+                    <input type="text" class="form-control validate-text"  name="address"
+                           placeholder="Address">
+                    <label for="price" class="color-highlight">Address</label>
+                </div>
+                <a href="#" class="back-button btn btn-full btn-m shadow-large rounded-sm text-uppercase font-900 bg-highlight">Create </a>
+            </div>
+        </div>
+    </div>
+
+</div>
