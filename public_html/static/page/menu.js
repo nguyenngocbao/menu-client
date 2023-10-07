@@ -1,115 +1,198 @@
-const URL = '/store/';
-
-const STRUCTURE = {
+const MENU_URL = "/menu/";
+const MENU = {
     id: {type:'text'},
     name : {type:'text'},
-    phone : {type:'text'},
-    address : {type:'text'},
-    ward_id : {type:'selected'},
-    district_id : {type:'selected'},
-    city_id : {type:'selected'},
-    store_type: {type:'text'},
-    template_id: {type:'text'},
-    wifi_pass : {type:'text'},
-    email: {type:'text'},
+    sort : {type:'text'},
+    store_id : {type:'text'},
     status: {type:'text'}
-};
-jQuery(document).ready(function () {
+}
 
+const ITEM_URL = "/item/";
+const ITEM = {
+    id: {type:'text'},
+    name : {type:'text'},
+    price : {type:'text'},
+    sort : {type:'text'},
+    menu_id : {type:'text'},
+    status: {type:'text'}
+}
+$(window).load(function () {
 
-
-    $('#btn-add').on('click', function (e) {
-        let form = $('#add-form');
-        let store = getDataForm(STRUCTURE, form);
+    $('#complete-btn').click(function (){
         let uuid = $('#uuid').val();
+        location.href = `/${uuid}`;
+    });
 
+    $('#edit-store-btn').click(function (){
+        // let form = $('#menu-form');
+        // const store_id = $('#store_id_filed').val();
+        // let data = {
+        //     id: 0,
+        //     name : "",
+        //     store_id: store_id,
+        //     sort : 1,
+        //     status: 1
+        // }
+        //
+        // updateForm(MENU,form,data)
+        $('#open-store-modal').click();
+    })
+
+    $('#add-menu-btn').click(function (){
+        let form = $('#menu-form');
+        const store_id = $('#store_id_filed').val();
         let data = {
-            'store' : store,
-            'uuid' : uuid
+            id: 0,
+            name : "",
+            store_id: store_id,
+            sort : 1,
+            status: 1
         }
+
+        updateForm(MENU,form,data)
+        $('#open-menu-modal').click();
+    })
+
+
+    $('.edit-menu-btn').click(function (){
+        let form = $('#menu-form');
+        const store_id = $('#store_id_filed').val();
+        let data = {
+            id: $(this).data('id'),
+            name : $(this).data('name'),
+            store_id: store_id,
+            sort : 1,
+            status: 1
+        }
+
+        updateForm(MENU,form,data)
+        $('#open-menu-modal').click();
+    })
+
+    $('#add-menu').click(function (){
+        let form = $('#menu-form');
+        let data = getDataForm(MENU,form);
+
 
         $.ajax({
             method: 'POST',
-            url: URL + 'insert',
+            url:  MENU_URL + 'update',
             dataType: 'json',
             data: data,
             success: function (response) {
                 console.log(response)
                 if (response.err === 1) {
-
                 } else {
-                    let store_id = response.data.store_id;
-                    let uuid = response.data.uuid;
-                    location.href = `/sale/menu/${uuid}/${store_id}`;
+                    location.reload();
                 }
             },
             error: function (error) {
                 console.log(error);
             }
         });
-    });
-    //event
-    $(document).on('change', '#city', function () {
-        var formData = {
-            id: $(this).val()
-        };
+
+    })
+
+    $('.delete-menu-btn').click(function (){
+
+        let data = {'id': $(this).data('id')};
+
         $.ajax({
             method: 'POST',
-            url: URL + "get-district",
+            url:  MENU_URL + 'delete',
             dataType: 'json',
-            data: formData,
+            data: data,
             success: function (response) {
+                console.log(response)
                 if (response.err === 1) {
-
                 } else {
-                    $('#district').empty();
-                    let html = '';
-                    html += `<option value="0"> Please select district </option>`
-                    for (const d of response.data) {
-                        html += `<option value="${d.id}"> ${d.name} </option>`
-                    }
-                    $('#district').html(html);
+                    location.reload();
                 }
             },
             error: function (error) {
                 console.log(error);
             }
         });
-    });
-    $(document).on('change', '#district', function () {
-        var formData = {
-            id: $(this).val()
-        };
+
+    })
+
+
+
+    $('.add-item-btn').click(function (){
+        let form = $('#item-form');
+        let data = {
+            id: 0,
+            name : "",
+            menu_id: $(this).data("id"),
+            price : 0,
+            sort : 1,
+            status: 1
+        }
+        updateForm(ITEM,form,data)
+        $('#open-item-modal').click();
+    })
+    $('.edit-item-btn').click(function (){
+        let form = $('#item-form');
+        let data = {
+            id: $(this).data('id'),
+            name : $(this).data('name'),
+            menu_id: $(this).data("menu_id"),
+            price : $(this).data('price'),
+            sort : 1,
+            status: 1
+        }
+        updateForm(ITEM,form,data)
+        $('#open-item-modal').click();
+    })
+
+    $('#add-item').click(function (){
+        let form = $('#item-form');
+        let data = getDataForm(ITEM,form);
+
         $.ajax({
             method: 'POST',
-            url: URL + "get-ward",
+            url:  ITEM_URL + 'update',
             dataType: 'json',
-            data: formData,
+            data: data,
             success: function (response) {
+                console.log(response)
                 if (response.err === 1) {
-
                 } else {
-                    $('#ward').empty();
-                    let html = '';
-                    html += `<option value="0"> Please select ward </option>`
-                    for (const d of response.data) {
-                        html += `<option value="${d.id}"> ${d.name} </option>`
-                    }
-                    $('#ward').html(html);
-
+                    location.reload();
                 }
             },
             error: function (error) {
                 console.log(error);
             }
         });
-    });
+
+    })
+
+    $('.delete-item-btn').click(function (){
+
+        let data = {'id': $(this).data('id')};
+        $.ajax({
+            method: 'POST',
+            url:  ITEM_URL + 'delete',
+            dataType: 'json',
+            data: data,
+            success: function (response) {
+                console.log(response)
+                if (response.err === 1) {
+                } else {
+                    location.reload();
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+
+    })
 
 
 
-
-})
-
+});
 function clearForm(structure,form){
 
     for(let col in structure){

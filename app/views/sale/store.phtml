@@ -1,5 +1,7 @@
 <script src="<?= config('view_static') ?>/static/page/store.js?v=<?= time()?>" type="text/javascript"></script>
+
 <div class="page-content pb-0">
+    <input id="uuid" value="<?= $uuid ?>"  hidden>
     <div data-card-height="cover" class="card" style="height: 844px;">
         <div class="card-top notch-clear">
             <div class="d-flex">
@@ -8,12 +10,17 @@
         </div>
         <div class="card-center">
             <div class="ps-5 pe-5">
-                <h1 class="text-center font-800 font-40 mb-1 mt-5">Create Store</h1>
+                <h1 class="text-center font-800 font-40 mb-1 mt-5 color-highlight text-uppercase">Create Store</h1>
                 <p class="color-highlight text-center font-12">Create an Store. It's free!</p>
+                <form id="add-form">
+                    <input  name="id" value="0" hidden>
+                    <input  name="status" value="1" hidden>
+                    <input  name="store_type" value="1" hidden>
+                    <input  name="template_id" value="1" hidden>
 
                 <div class="input-style no-borders  validate-field">
 
-                    <input type="name" class="form-control validate-name" id="form1a" placeholder="Store Name">
+                    <input type="name" name="name" class="form-control validate-name" id="form1a" placeholder="Store Name">
                     <label for="form1a" class="color-blue-dark font-10 mt-1">Store Name</label>
                     <i class="fa fa-times disabled invalid color-red-dark"></i>
                     <i class="fa fa-check disabled valid color-green-dark"></i>
@@ -21,7 +28,7 @@
                 </div>
                 <div class="input-style no-borders  validate-field mt-2">
 
-                    <input type="number" class="form-control validate-name" name="phone" id="phone" placeholder="Phone">
+                    <input type="text" class="form-control validate-name" name="phone" id="phone" placeholder="Phone">
                     <label for="phone" class="color-blue-dark font-10 mt-1">Phone</label>
                     <i class="fa fa-times disabled invalid color-red-dark"></i>
                     <i class="fa fa-check disabled valid color-green-dark"></i>
@@ -30,9 +37,6 @@
                 <div class="input-style no-borders  validate-field mt-2">
                     <input type="email" class="form-control validate-name" name="email" id="email" placeholder="Email">
                     <label for="email" class="color-blue-dark font-10 mt-1">Email</label>
-                    <i class="fa fa-times disabled invalid color-red-dark"></i>
-                    <i class="fa fa-check disabled valid color-green-dark"></i>
-                    <em>(required)</em>
                 </div>
                 <div class="input-style no-borders  validate-field mt-2">
                     <input type="text" class="form-control validate-name" id="wifi_pass" name="wifi_pass" placeholder="Wifi Pass">
@@ -66,7 +70,8 @@
                            placeholder="Address">
                     <label for="price" class="color-highlight">Address</label>
                 </div>
-                <a href="#" class="back-button btn btn-full btn-m shadow-large rounded-sm text-uppercase font-900 bg-highlight">Create </a>
+                </form>
+                <a id="btn-add" class="back-button btn btn-full btn-m shadow-large rounded-sm text-uppercase font-900 bg-highlight">Create </a>
             </div>
         </div>
     </div>

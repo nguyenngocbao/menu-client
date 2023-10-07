@@ -13,6 +13,15 @@ class StoreController
 
     }
 
+    public function insertAction(){
+        $post = post();
+
+        $data = call_api("/store/insert",$post);
+
+        echo_json($data);
+
+    }
+
 
     public function dictrictAction(){
         $data = [];

@@ -9,7 +9,9 @@
         padding-bottom: 0px !important;
     }
 </style>
-
+<script src="<?= config('view_static') ?>/static/page/main.js?v=<?= time()?>" type="text/javascript"></script>
+<input id="uuid" <?= $uuid ?>  hidden>
+<input id="store_id_filed" value="<?= $store["id"]?>" hidden>
 <div class="page-content header-clear-medium">
 
     <div class="card card-style" >
@@ -17,7 +19,6 @@
             <div class="flex justify-content-center mb-3">
                 <h1 class="text-uppercase font-28"><?= $store["name"]?></h3>
             </div>
-
             <div class="flex gap-2 font-18">
                 <article id="map-marker-alt">
                     <div class="relative"><span class="fa-fw select-all fas "></span></div>

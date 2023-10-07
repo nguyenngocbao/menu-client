@@ -25,10 +25,11 @@
 <div id="preloader">
     <div class="spinner-border color-highlight" role="status"></div>
 </div>
-<div id="page">
+<div id="page" >
     <div class="header header-fixed header-logo-center">
-        <a  class="header-title">TapLink Ecosystem</a>
-        <a  data-back-button class="header-icon header-icon-1"><i class="fas fa-arrow-left"></i></a>
+        <a id="logo" data-url="<?= config('url.owner').'/'.$uuid ?>"  class="header-title"><img src="<?= config('view_static') ?>/static/images/logo.png" height="38px" ></a>
+        <a  id="hidden" class="header-icon header-icon-1" href="<?= config('url.owner').'/'.$uuid ?>" hidden><i class="fa-solid fa-right-to-bracket"></i></a>
+
     </div>
     <?= $content ?>
 </div>

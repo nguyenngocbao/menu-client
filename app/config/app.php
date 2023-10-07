@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author TriNT <trint@vng.com.vn>
+ * @author Bao
  */
 return [    
     'debug' => true,
@@ -15,5 +15,10 @@ return [
         'url' => 'http://localhost:8777',
         'callee' => 'client-menu',
         'key' => 'client',
+    ],
+    'url' => [
+        'owner' => 'http://localhost:8002',
+        'base' => 'http://localhost:8000',
+        'err' => 'http://localhost:8000',
     ]
 ];

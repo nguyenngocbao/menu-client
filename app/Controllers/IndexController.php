@@ -6,17 +6,17 @@ class IndexController {
 
     private function _($uuid) {
         $res = call_api("/store/uuid",['uuid' => $uuid]);
+        //echo_json($res);
         $store = [];
         $menu = [];
         if($res['err'] == 1){
-            //redirect(url('sale/'.$uuid));
             $city = call_api("/store/city",[]);
-            render_page_layout('sale/store', ['uuid' => $uuid,'city' => $city,],'_noheader_layout');
+            render_page('sale/store', ['uuid' => $uuid,'city' => $city]);
         }
         $store = $res['data']['store'];
         $menu = $res['data']['menus'];
 
-        render_page_layout('menu/menu', ['uuid' => $uuid,'store' => $store,'menu' => $menu],'_noheader_layout');
+        render_page('menu/menu', ['uuid' => $uuid,'store' => $store,'menu' => $menu]);
     }
 
     public function indexAction($uuid) {
@@ -35,7 +35,7 @@ class IndexController {
         $store = $res['data']['store'];
         $menu = $res['data']['menus'];
 
-        render_page_layout('sale/menu', ['store' => $store,'menu' => $menu],'_noheader_layout');
+        render_page('sale/menu', ['uuid' => $uuid,'store' => $store,'menu' => $menu]);
 
     }
 
