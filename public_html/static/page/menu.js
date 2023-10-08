@@ -35,6 +35,8 @@ $(window).load(function () {
         // }
         //
         // updateForm(MENU,form,data)
+        writeNFC("abc");
+
         $('#open-store-modal').click();
     })
 
@@ -52,6 +54,20 @@ $(window).load(function () {
         updateForm(MENU,form,data)
         $('#open-menu-modal').click();
     })
+
+    async function writeNFC(text) {
+
+        // Kiểm tra hỗ trợ
+        if (!('NDEFWriter' in window)) {
+            alert('Web NFC API không được hỗ trợ');
+            return;
+        }
+
+        const writer = new NDEFWriter();
+        await writer.write(text);
+
+        alert('Đã ghi thành công văn bản: ', text);
+    }
 
 
     $('.edit-menu-btn').click(function (){
