@@ -16,7 +16,11 @@ class IndexController {
         $store = $res['data']['store'];
         $menu = $res['data']['menus'];
 
-        render_page('menu/menu', ['uuid' => $uuid,'store' => $store,'menu' => $menu]);
+        $template = 'menu/menu';
+        if ($store && $store['template_id'] && $store['template_id'] == 2){
+            $template = 'menu/menu2';
+        }
+        render_page($template, ['uuid' => $uuid,'store' => $store,'menu' => $menu]);
     }
 
     public function indexAction($uuid) {

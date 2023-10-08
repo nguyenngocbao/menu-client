@@ -5299,7 +5299,7 @@ input[type=number] {
 }
 
 [data-gradient=body-default] #page, .background-changer .body-default {
-  background-image: #fffff !important;
+  background-color: #ffffff !important;
 }
 
 .color-plum-light {
