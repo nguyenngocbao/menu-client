@@ -19,12 +19,14 @@ return [
 
     ['GET', '/store/[*:id]', [IndexController::class, 'index']],
     ['GET', '/sale/menu/[*:uuid]/[*:store_id]', [IndexController::class, 'menu']],
-    ['GET', '/[*:uuid]', [IndexController::class, 'index']],
+
     ['POST', '/store/get-district', [StoreController::class, 'dictrict']],
     ['POST', '/store/get-ward', [StoreController::class, 'ward']],
     ['POST', '/store/update', [StoreController::class, 'update']],
     ['POST', '/store/insert', [StoreController::class, 'insert']],
     ['GET', '/menu/[*:uuid]', [IndexController::class, 'index']],
+    ['GET', '/wellcome', [IndexController::class, 'wellcome']],
+    ['GET', '/[*:uuid]', [IndexController::class, 'index']],
 
 
 

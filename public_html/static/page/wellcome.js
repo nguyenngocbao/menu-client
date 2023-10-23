@@ -1,19 +1,16 @@
 $(window).load(function () {
-    var clickLogo = 0;
-  $('#logo').click(function (){
-      let url = $(this).data('url');
-      if (clickLogo < 2){
-          clickLogo++;
-      }else{
-          location.href = url;
-      }
-      setTimeout(function() {
-          clickLogo = 0;
-      }, 5000);
-
-  });
+$('#nfc').click(function (){
+    writeNFC("abc");
+});
 });
 async function writeNFC(text) {
+
+    try {
+        await ndef.scan();
+        console.log('Đã bật NFC thành công');
+    } catch(error) {
+        console.log('Lỗi khi bật NFC: ', error);
+    }
 
     // Kiểm tra hỗ trợ
     if (!('NDEFWriter' in window)) {
